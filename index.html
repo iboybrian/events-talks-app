@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Track Google Cloud BigQuery release notes, upcoming tech talks, community events, and developer presentations in one beautiful, interactive dashboard.">
+  <title>BigQuery Releases & Events Hub | Google Cloud Developer Portal</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <!-- Gradient Background Decoration -->
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+  
+  <!-- Navigation Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-area">
+        <svg class="logo-icon" viewBox="0 0 24 24" width="24" height="24">
+          <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+        </svg>
+        <span class="logo-text">BigQuery <span class="gradient-text">Hub</span></span>
+      </div>
+      <nav class="nav-links">
+        <button id="nav-btn-dashboard" class="nav-link active" onclick="switchTab('dashboard')">Dashboard</button>
+        <button id="nav-btn-releases" class="nav-link" onclick="switchTab('releases')">Release Notes</button>
+        <button id="nav-btn-talks" class="nav-link" onclick="switchTab('talks')">Events & Talks</button>
+      </nav>
+      <div class="theme-toggle-container">
+        <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle light/dark theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20">
+            <path fill="currentColor" d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41zm-12.37 12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41z"/>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20">
+            <path fill="currentColor" d="M12.3 22h-.1c-5.4 0-9.8-4.4-9.8-9.8 0-4.3 2.7-8.1 6.8-9.4.6-.2 1.2.2 1.2.9v.2c0 .4-.2.8-.6 1-.8.4-1.5 1-2.1 1.8-.7.9-1.1 2.1-1.1 3.3 0 3 2.5 5.5 5.5 5.5 1.2 0 2.4-.4 3.3-1.1.8-.6 1.4-1.3 1.8-2.1.2-.4.6-.6 1-.6h.2c.7 0 1.1.6.9 1.2-.9 4.2-4.7 6.9-9 6.8z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Workspace -->
+  <main class="main-content">
+    
+    <!-- Tab 1: Dashboard -->
+    <section id="tab-dashboard" class="tab-pane active">
+      <div class="hero-section">
+        <h1 class="hero-title">Stay Ahead of BigQuery <span class="gradient-text">Releases & Events</span></h1>
+        <p class="hero-subtitle">Real-time changelog tracking, interactive metrics, and upcoming technical talks compiled in one interface.</p>
+        
+        <!-- Quick stats cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon-wrapper feat">
+              <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2L1 21h22L12 2zm0 4l7.53 13H4.47L12 6zm-1 7h2v2h-2zm0-4h2v2h-2z"/></svg>
+            </div>
+            <div class="stat-info">
+              <span id="stat-count-releases" class="stat-number">24</span>
+              <span class="stat-label">Recent Releases</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon-wrapper talk">
+              <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+            </div>
+            <div class="stat-info">
+              <span id="stat-count-talks" class="stat-number">8</span>
+              <span class="stat-label">Upcoming Talks</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon-wrapper updates">
+              <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            </div>
+            <div class="stat-info">
+              <span id="stat-last-updated" class="stat-number">June 20</span>
+              <span class="stat-label">Latest Update</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layout Grid -->
+      <div class="dashboard-grid">
+        <!-- Left Side: Recent Release Notes Summary -->
+        <div class="dashboard-card main-summary">
+          <div class="card-header">
+            <h2>Recent Release Highlights</h2>
+            <button class="btn-text" onclick="switchTab('releases')">View all releases &rarr;</button>
+          </div>
+          <div id="dashboard-recent-releases" class="recent-list">
+            <!-- Dynamic release highlights -->
+          </div>
+        </div>
+
+        <!-- Right Side: Events Timeline -->
+        <div class="dashboard-card secondary-summary">
+          <div class="card-header">
+            <h2>Next Up: Talks & Events</h2>
+            <button class="btn-text" onclick="switchTab('talks')">Browse all talks &rarr;</button>
+          </div>
+          <div id="dashboard-upcoming-talks" class="timeline-list">
+            <!-- Dynamic upcoming events -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 2: Releases Changelog -->
+    <section id="tab-releases" class="tab-pane">
+      <div class="filter-bar">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          <input type="text" id="search-input-releases" placeholder="Search features, fixes, datasets, SQL functions..." oninput="filterReleases()">
+        </div>
+        
+        <div class="selectors-row">
+          <div class="filter-group">
+            <label for="filter-release-type" class="sr-only">Type</label>
+            <select id="filter-release-type" onchange="filterReleases()">
+              <option value="all">All Types</option>
+              <option value="feature">Features</option>
+              <option value="improvement">Improvements</option>
+              <option value="change">Changes</option>
+              <option value="fix">Fixes</option>
+              <option value="deprecation">Deprecations</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label for="filter-release-category" class="sr-only">Component</label>
+            <select id="filter-release-category" onchange="filterReleases()">
+              <option value="all">All Components</option>
+              <option value="sql">SQL Syntax & Functions</option>
+              <option value="security">Security & IAM</option>
+              <option value="performance">Performance & Storage</option>
+              <option value="connections">External Connections</option>
+              <option value="ml">BigQuery ML</option>
+              <option value="administration">Admin & Billing</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="results-header">
+        <span id="releases-match-count" class="match-count">Showing 24 releases</span>
+      </div>
+
+      <div id="releases-container" class="releases-stack">
+        <!-- Dynamic Release Cards -->
+      </div>
+    </section>
+
+    <!-- Tab 3: Events & Talks -->
+    <section id="tab-talks" class="tab-pane">
+      <div class="filter-bar">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          <input type="text" id="search-input-talks" placeholder="Search presenters, topics, venues..." oninput="filterTalks()">
+        </div>
+        
+        <div class="selectors-row">
+          <div class="filter-group">
+            <label for="filter-talk-type" class="sr-only">Event Type</label>
+            <select id="filter-talk-type" onchange="filterTalks()">
+              <option value="all">All Event Types</option>
+              <option value="conference">Conferences & Keynotes</option>
+              <option value="webinar">Webinars & Demos</option>
+              <option value="meetup">Community Meetups</option>
+              <option value="workshop">Hands-on Workshops</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="results-header">
+        <span id="talks-match-count" class="match-count">Showing 8 talks & events</span>
+      </div>
+
+      <div id="talks-container" class="talks-grid">
+        <!-- Dynamic Talk Cards -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Detailed Modal -->
+  <div id="details-modal" class="modal-backdrop hidden" onclick="closeModal(event)">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeModal()">
+        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+      <div id="modal-content">
+        <!-- Dynamic Content -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <p>&copy; 2026 Developer Portal Hub. Hand-built with pure HTML/CSS/JS.</p>
+      <div class="footer-links">
+        <a href="https://cloud.google.com/bigquery/docs/release-notes" target="_blank" rel="noopener">Official Google Cloud Releases</a>
+        <span class="divider">|</span>
+        <a href="https://github.com/iboybrian/events-talks-app" target="_blank" rel="noopener">GitHub Project Repo</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
